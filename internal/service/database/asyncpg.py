@@ -15,7 +15,6 @@ SessionLocal = sessionmaker(
 )
 
 
-@asynccontextmanager
 async def session():
     async with SessionLocal() as sess:
         yield sess
