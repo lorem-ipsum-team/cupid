@@ -17,6 +17,9 @@ class Settings:
         self.AUTH_SCHEME_NAME = os.getenv('AUTH_SCHEME_NAME')
 
         self.ST_DWITHIN_KM = int(os.getenv('ST_DWITHIN_KM', '15'))
+        self.PROFILING = os.getenv('PROFILING', 'false') == 'true'
+        self.POOL_SIZE = int(os.getenv('POOL_SIZE', '5'))
+        self.MAX_OVERFLOW = int(os.getenv('MAX_OVERFLOW', '10'))
 
 
 settings = Settings()
