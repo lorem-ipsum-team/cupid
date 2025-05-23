@@ -13,7 +13,7 @@ async def lifespan(_app):
     print("Starting up...")
 
     if profiling:
-        profiler = cProfile.Profile()
+        profiler = cProfile.Profile(builtins=False)
         profiler.enable()
         print("Profiler enabled")
 
