@@ -4,15 +4,15 @@ from internal.config.settings import settings
 
 
 engine = create_async_engine(settings.DATABASE_URL,
-                             echo=False, future=True, plugins=['geoalchemy2'])
+                             echo=False, future=True, plugins=['geoalchemy2'],
+                             pool_size=settings.POOL_SIZE,
+                             max_overflow=settings.MAX_OVERFLOW)
 
 SessionLocal = sessionmaker(
     bind=engine,
     autocommit=False,
     autoflush=False,
-    class_=AsyncSession,
-    pool_size=settings.POOL_SIZE,
-    max_overflow=settings.MAX_OVERFLOW
+    class_=AsyncSession
 )
 
 
